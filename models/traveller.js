@@ -24,18 +24,16 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
+  
+  let transportArray = this.journeys.map((journey) => journey.transport)
+  return transportArray.filter((type,index) => transportArray.indexOf(type) === index);
 
-  let onlyUnique = function (value, index, self) {
-    return self.indexOf(value) === index;
-  };
-
-  transportArray = this.journeys.map((journey) => journey.transport)
-  return transportArray.filter(onlyUnique)
 };
+  // let onlyUnique = function (value, index, self) {
+  //   return self.indexOf(value) === index;
+  // };
+  //
+  // return transportArray.filter((onlyUnique))
 
-// function onlyUnique(value, index, self) {
-//     return self.indexOf(value) === index;
-//     var a = ['a', 1, 'a', 2, '1'];
-//     var unique = a.filter( onlyUnique );
 
 module.exports = Traveller;
